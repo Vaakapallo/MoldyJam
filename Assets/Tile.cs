@@ -29,7 +29,7 @@ public class Tile : MonoBehaviour
     void Update()
     {
         if(moldy){
-            moldiness += 0.05f * Random.Range(0f,1f);
+            moldiness += 0.01f * Random.Range(0f,2f);
         }
         if(moldiness >= 1 && !infected){
             InfectNeighbours();
