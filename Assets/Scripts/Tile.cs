@@ -21,17 +21,11 @@ public class Tile : MonoBehaviour
 
     public bool moldProof = false;
 
-
-    public int x, y;
+    public int X;
+    public int Y;
     
-    void Awake()
-    {
-        x = Mathf.RoundToInt(transform.localPosition.x / 0.2f);
-        y = Mathf.RoundToInt(transform.localPosition.y / 0.2f);
-    }
-
     void Start() {
-        neighbours = GameManager.instance.GetNeighbours(x, y);
+        neighbours = GameManager.instance.GetNeighbours(X, Y);
     }
 
     void Update()
