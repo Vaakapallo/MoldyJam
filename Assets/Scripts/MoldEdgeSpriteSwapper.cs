@@ -14,7 +14,6 @@ public class MoldEdgeSpriteSwapper : MonoBehaviour
         sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
-
     public void Swap(int v)
     {
         if(v == 0) {
@@ -24,12 +23,19 @@ public class MoldEdgeSpriteSwapper : MonoBehaviour
         }
         if(currentSprite == 2)
             return;
-
+        Color oldColor = Color.white;
         if(currentSprite != -1) {
             sprites[currentSprite].enabled = false;
+            oldColor = sprites[currentSprite].color;
         }
         currentSprite = v;
         sprites[currentSprite].enabled = true;
+        SetColor(oldColor);
+    }
 
+    public void SetColor(Color color){
+        if(currentSprite != -1){
+            sprites[currentSprite].color = color;
+        }
     }
 }

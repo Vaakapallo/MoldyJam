@@ -45,6 +45,8 @@ public class Tile : MonoBehaviour, IPointerClickHandler
     void Start() {
         neighbours = GameManager.instance.GetNeighbours(X, Y);
         moldManager = GetComponent<MoldManager>();
+        moldManager.OnTileChange += DetermineColor;
+        DetermineColor();
     }
 
     void FixedUpdate()
@@ -56,7 +58,6 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         if(moldiness >= 1 && !hasSpread) {
             InfectNeighbours();
         }
-        //DetermineColor();
     }
 
     void DetermineColor(){
@@ -64,17 +65,17 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         float green = 0;
         float blue = 0;
         if(moldType == MoldType.Green)
-            green = moldiness;
+            green = 1;
         if(moldType == MoldType.Red)
-            red = moldiness;
+            red = 1;
         if(moldType == MoldType.Blue)
-            blue = moldiness;
+            blue = 1;
         if(moldType == MoldType.Yellow){
-            green = moldiness;
-            red = moldiness;
+            green = 1;
+            red = 1;
         }
 
-        GetComponent<SpriteRenderer>().color = new Color(red, green, blue);
+        moldManager.SetColor(new Color(red, green, blue));
     }
 
     public void OnPointerClick (PointerEventData eventData) {

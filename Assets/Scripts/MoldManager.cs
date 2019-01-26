@@ -12,6 +12,9 @@ public class MoldManager : MonoBehaviour
     public MoldEdgeSpriteSwapper bottom;
     public MoldCenterSprite center;
 
+    public delegate void TileChange();
+    public event TileChange OnTileChange;
+
     private Dictionary<Direction, MoldEdgeSpriteSwapper> directions = new Dictionary<Direction, MoldEdgeSpriteSwapper>();
 
     void Start() {
@@ -37,14 +40,22 @@ public class MoldManager : MonoBehaviour
             foreach(var swapper in directions.Values) {
                 swapper.Swap(0);
             }
+            TileChanged();
             return;
         }
         StartCoroutine(WaitToEnableCenter(direction));
     }
 
+    private void TileChanged(){
+        if(OnTileChange != null){
+            OnTileChange();
+        }
+    }
+
     private IEnumerator WaitToEnableCenter(Direction direction) {
         var swapper = directions[direction];
         swapper.Swap(1);
+        TileChanged();
         yield return new WaitForSeconds(1f);
         swapper.Swap(2);
         center.Enable();
@@ -53,6 +64,14 @@ public class MoldManager : MonoBehaviour
                 continue;
             pair.Value.Swap(0);
         }
-        
+        TileChanged();
+    }
+
+    public void SetColor(Color color)
+    {
+        foreach(var swapper in directions.Values) {
+            swapper.SetColor(color);
+        }
+        center.SetColor(color);
     }
 }

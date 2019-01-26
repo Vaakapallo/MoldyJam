@@ -18,4 +18,9 @@ public class MoldCenterSprite : MonoBehaviour
     {
         spriteRenderer.enabled = true;
     }
+
+    public void SetColor(Color color)
+    {
+        spriteRenderer.color = color;
+    }
 }
