@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
     public bool moldy = true;
     private string type = "Floor";
     public List<Tile> neighbours;
+    public bool moldProof = false;
 
     private bool infected = false; 
 
@@ -29,7 +30,7 @@ public class Tile : MonoBehaviour
     void Update()
     {
         if(moldy){
-            moldiness += 0.01f * Random.Range(0f,2f);
+            moldiness += 0.02f * Random.Range(0f,2f);
         }
         if(moldiness >= 1 && !infected){
             InfectNeighbours();
@@ -41,8 +42,14 @@ public class Tile : MonoBehaviour
     void InfectNeighbours(){
         foreach(Tile t in neighbours){
             print("infecting");
-            t.moldy = true;
+            t.Infect();
         }
         infected = true;
+    }
+
+    void Infect(){
+        if(!moldProof){
+            moldy = true;
+        }
     }
 }

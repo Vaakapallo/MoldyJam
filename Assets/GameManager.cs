@@ -28,9 +28,8 @@ public class GameManager : MonoBehaviour
         List<Tile> neighbours = new List<Tile>();
         foreach(Tile t in tiles){
             if(t.x == x + 1 || t.x == x - 1){
-                if(t.y == y){
+                if(t.y == y)
                     neighbours.Add(t);
-                }    
             }
             if(t.y == y + 1 || t.y == y - 1){
                 if(t.x == x){
