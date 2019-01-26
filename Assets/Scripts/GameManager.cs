@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         tiles = FindObjectsOfType<Tile>().ToList();
         timeScaleSlider.onValueChanged.AddListener(val => ChangeTimescale(val));
     }
-    
+
     public List<Tile> GetNeighbours(int x, int y) {
         List<Tile> neighbours = new List<Tile>();
         foreach(Tile t in tiles){
@@ -56,10 +56,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = timeScale;
     }
 
-    public List<Tile> GetNeighboursBroken(int x, int y){
-        return tiles.Where(tile => Mathf.Abs(tile.X - x) <= 1 
-        && Mathf.Abs(tile.Y - y) <= 1 
-        && !(x == tile.X && y == tile.Y) 
-        && Mathf.Abs(tile.X - x) + Mathf.Abs(tile.Y - y) < 2).ToList();
+    public void LoadNextLevel() {
+        MainMenuManager.Instance.LoadNextLevel();
     }
 }
