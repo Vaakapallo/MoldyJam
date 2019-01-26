@@ -22,6 +22,8 @@ public class MoldEdgeSpriteSwapper : MonoBehaviour
                 return;
             }
         }
+        if(currentSprite == 2)
+            return;
 
         if(currentSprite != -1) {
             sprites[currentSprite].enabled = false;
