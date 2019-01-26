@@ -17,7 +17,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private float moldingSpeed = 0.01f;
 
     private float moldiness = 0f;
-    private bool infected = false; 
+    private bool hasSpread = false; 
 
     public bool moldProof = false;
 
@@ -36,11 +36,11 @@ public class Tile : MonoBehaviour
 
     void Update()
     {
-        if(moldy && !infected) {
+        if(moldy && !hasSpread) {
             moldiness += moldingSpeed * Random.Range(0f,2f);
             moldiness = Mathf.Clamp01(moldiness);
         }
-        if(moldiness >= 1 && !infected) {
+        if(moldiness >= 1 && !hasSpread) {
             InfectNeighbours();
         }
         Color oldColor = GetComponent<SpriteRenderer>().color;
@@ -52,7 +52,7 @@ public class Tile : MonoBehaviour
             print("infecting");
             t.Infect();
         }
-        infected = true;
+        hasSpread = true;
     }
 
     void Infect(){
