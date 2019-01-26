@@ -55,7 +55,7 @@ public class MoldManager : MonoBehaviour
     private IEnumerator WaitToEnableCenter(Direction direction) {
         var swapper = directions[direction];
         swapper.Swap(1);
-        TileChanged();
+        TileChanged(); // This could say which tile, so could update only that.
         yield return new WaitForSeconds(1f);
         swapper.Swap(2);
         center.Enable();
