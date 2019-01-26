@@ -5,6 +5,8 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
+    public MoldType chosenType = MoldType.Green;
+
     private List<Tile> tiles;
 
     public static GameManager instance;
@@ -17,12 +19,6 @@ public class GameManager : MonoBehaviour
         tiles = FindObjectsOfType<Tile>().ToList();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         Time.timeScale = timeScale;
@@ -43,6 +39,19 @@ public class GameManager : MonoBehaviour
             }
         }
         return neighbours;
+    }
+
+    public void ChangeToGreen() {
+        chosenType = MoldType.Green;
+    }
+    public void ChangeToBlue() {
+        chosenType = MoldType.Blue;
+    }
+    public void ChangeToRed() {
+        chosenType = MoldType.Red;
+    }
+    public void ChangeToYellow() {
+        chosenType = MoldType.Yellow;
     }
 
 
