@@ -5,16 +5,34 @@ using UnityEngine;
 [RequireComponent(typeof(Tile))]
 public class Lock : MonoBehaviour
 {
-
     private Tile tile;
-    // Start is called before the first frame update
+    private List<Unlock> unlocks;
+
+    void Awake(){
+        tile = GetComponent<Tile>();
+        unlocks = new List<Unlock>();
+    }
+
     void Start()
     {
-        tile = GetComponent<Tile>();
         tile.moldProof = true;
     }
 
+    public void AddUnlocker(Unlock unlocker){
+        unlocks.Add(unlocker);
+    }
+
     public void Unlock(){
-        tile.moldProof = false;
+        if(AllUnlocksDone())
+            tile.moldProof = false;
+    }
+
+    private bool AllUnlocksDone(){
+        bool result = true; 
+        foreach(Unlock unlocker in unlocks){
+            if(!unlocker.GetCorrect())
+                result = false;
+        }
+        return result;
     }
 }
