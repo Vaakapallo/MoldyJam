@@ -13,6 +13,14 @@ public enum MoldType {
     Green, Red, Blue, Yellow
 }
 
+public enum Direction {
+    Left,
+    Right,
+    Up,
+    Down,
+    Center
+}
+
 public class Tile : MonoBehaviour, IPointerClickHandler
 {
     public bool moldy = true;
@@ -31,9 +39,12 @@ public class Tile : MonoBehaviour, IPointerClickHandler
 
     public int X;
     public int Y;
+
+    private MoldManager moldManager;
     
     void Start() {
         neighbours = GameManager.instance.GetNeighbours(X, Y);
+        moldManager = GetComponent<MoldManager>();
     }
 
     void FixedUpdate()
@@ -45,7 +56,7 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         if(moldiness >= 1 && !hasSpread) {
             InfectNeighbours();
         }
-        DetermineColor();
+        //DetermineColor();
     }
 
     void DetermineColor(){
@@ -67,12 +78,14 @@ public class Tile : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick (PointerEventData eventData) {
-        Infect(GameManager.instance.chosenType);
+        Infect(GameManager.instance.chosenType, Direction.Center);
     }
 
     private void InfectNeighbours() {
         foreach(Tile t in neighbours) {
-            t.Infect(moldType);
+            var direction = GetInfectionDirectionRelativeToInfected(t);
+            t.Infect(moldType, direction);
+            moldManager.InfectTowards(ReverseDirection(direction));
         }
         hasSpread = true;
         if(OnSpread != null){
@@ -80,12 +93,41 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void Infect(MoldType type) {
-        if(moldType != type){
+    private void Infect(MoldType type, Direction direction) {
+        if(moldType != type) {
             hasSpread = false;
             moldiness = 0;
         }
         moldy = true;
         moldType = type;
+        moldManager.InfectedFrom(direction);
+    }
+
+    private Direction GetInfectionDirectionRelativeToInfected(Tile tile) {
+        if(tile.X > this.X)
+            return Direction.Left;
+        if(tile.X < this.X)
+            return Direction.Right;
+        if(tile.Y > this.Y)
+            return Direction.Down;
+        if(tile.Y < this.Y)
+            return Direction.Up;
+
+        return Direction.Center;
+    }
+
+    private Direction ReverseDirection(Direction direction) {
+        switch(direction) {
+            case Direction.Down:
+                return Direction.Up;
+            case Direction.Up:
+                return Direction.Down;
+            case Direction.Left:
+                return Direction.Right;
+            case Direction.Right:
+                return Direction.Left;
+            default:
+                return Direction.Center;
+        }
     }
 }
