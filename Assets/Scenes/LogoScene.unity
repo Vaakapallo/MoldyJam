@@ -475,11 +475,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2358443887987678113, guid: 04dc1a9f53756423ea3b43a712cbbc8c,
-        type: 3}
-      propertyPath: orthographic size
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04dc1a9f53756423ea3b43a712cbbc8c, type: 3}
 --- !u!1001 &191053046
@@ -8881,6 +8876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chosenType: 0
   timeScaleSlider: {fileID: 9216261699361935580}
+  nextLevelButton: {fileID: 0}
   timeScale: 1
 --- !u!224 &6371207853468008955
 RectTransform:
