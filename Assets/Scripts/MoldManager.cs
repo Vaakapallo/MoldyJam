@@ -19,6 +19,9 @@ public class MoldManager : MonoBehaviour
         directions.Add(Direction.Right, right);
         directions.Add(Direction.Up, top);
         directions.Add(Direction.Down, bottom);
+        var tile = GetComponent<Tile>();
+        if(tile.moldy)
+            InfectedFrom(Direction.Center);
     }
 
     public void InfectTowards(Direction direction)
