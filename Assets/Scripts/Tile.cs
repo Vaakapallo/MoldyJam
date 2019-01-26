@@ -9,9 +9,14 @@ public enum TileType {
     Furniture
 }
 
+public enum MoldType {
+    Green, Red, Blue, Yellow
+}
+
 public class Tile : MonoBehaviour, IPointerClickHandler
 {
     public bool moldy = true;
+    public MoldType moldType = MoldType.Green;
     private TileType type = TileType.Floor;
     public List<Tile> neighbours;
 
@@ -40,8 +45,25 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         if(moldiness >= 1 && !hasSpread) {
             InfectNeighbours();
         }
-        Color oldColor = GetComponent<SpriteRenderer>().color;
-        GetComponent<SpriteRenderer>().color = new Color(0, moldiness, 0);
+        DetermineColor();
+    }
+
+    void DetermineColor(){
+        float red = 0;
+        float green = 0;
+        float blue = 0;
+        if(moldType == MoldType.Green)
+            green = moldiness;
+        if(moldType == MoldType.Red)
+            red = moldiness;
+        if(moldType == MoldType.Blue)
+            blue = moldiness;
+        if(moldType == MoldType.Yellow){
+            green = moldiness/2;
+            blue = moldiness/2;
+        }
+
+        GetComponent<SpriteRenderer>().color = new Color(red, green, blue);
     }
 
     public void OnPointerClick (PointerEventData eventData) {
@@ -50,8 +72,7 @@ public class Tile : MonoBehaviour, IPointerClickHandler
 
     private void InfectNeighbours() {
         foreach(Tile t in neighbours) {
-            print("infecting");
-            t.Infect();
+            t.Infect(moldType);
         }
         hasSpread = true;
         if(OnSpread != null){
@@ -59,7 +80,12 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void Infect() {
+    private void Infect(){
+        Infect(MoldType.Green);
+    }
+
+    private void Infect(MoldType type) {
         moldy = true;
+        moldType = type;
     }
 }
