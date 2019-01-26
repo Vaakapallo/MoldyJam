@@ -548,6 +548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chosenType: 0
   timeScaleSlider: {fileID: 9216261699609954082}
+  nextLevelButton: {fileID: 4448383086154292393}
   timeScale: 1
 --- !u!114 &2923793563181546010
 MonoBehaviour:
@@ -1461,7 +1462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2515416363528778380
 RectTransform:
   m_ObjectHideFlags: 0

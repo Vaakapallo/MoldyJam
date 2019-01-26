@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public MoldType chosenType = MoldType.Green;
     public Slider timeScaleSlider;
+    public GameObject nextLevelButton;
 
     private List<Tile> tiles;
 
@@ -58,5 +59,9 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel() {
         MainMenuManager.Instance.LoadNextLevel();
+    }
+
+    public void FinishLevel() {
+        nextLevelButton.SetActive(true);
     }
 }
