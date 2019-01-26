@@ -80,8 +80,8 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void Infect(){
-        Infect(MoldType.Green);
+    private void Infect() {
+        Infect(GameManager.instance.chosenType);
     }
 
     private void Infect(MoldType type) {
