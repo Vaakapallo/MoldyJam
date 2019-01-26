@@ -27,12 +27,13 @@ public class GameManager : MonoBehaviour
     public List<Tile> GetNeighbours(int x, int y){
         List<Tile> neighbours = new List<Tile>();
         foreach(Tile t in tiles){
-            if(t.x == x + 1 || t.x == x - 1){
-                if(t.y == y)
+            if(t.X == x + 1 || t.X == x - 1){
+                if(t.Y == y){
                     neighbours.Add(t);
+                }    
             }
-            if(t.y == y + 1 || t.y == y - 1){
-                if(t.x == x){
+            if(t.Y == y + 1 || t.Y == y - 1){
+                if(t.X == x) {
                     neighbours.Add(t);
                 }    
             }
@@ -42,9 +43,9 @@ public class GameManager : MonoBehaviour
 
 
     public List<Tile> GetNeighboursBroken(int x, int y){
-        return tiles.Where(tile => Mathf.Abs(tile.x - x) <= 1 
-        && Mathf.Abs(tile.y - y) <= 1 
-        && !(x == tile.x && y == tile.y) 
-        && Mathf.Abs(tile.x - x) + Mathf.Abs(tile.y - y) < 2).ToList();
+        return tiles.Where(tile => Mathf.Abs(tile.X - x) <= 1 
+        && Mathf.Abs(tile.Y - y) <= 1 
+        && !(x == tile.X && y == tile.Y) 
+        && Mathf.Abs(tile.X - x) + Mathf.Abs(tile.Y - y) < 2).ToList();
     }
 }
