@@ -10,7 +10,7 @@ public enum TileType {
 }
 
 public enum MoldType {
-    Green, Red, Blue, Yellow
+    Green, Red, Blue, Yellow, None
 }
 
 public enum Direction {
@@ -24,7 +24,7 @@ public enum Direction {
 public class Tile : MonoBehaviour, IPointerClickHandler
 {
     public bool moldy = true;
-    public MoldType moldType = MoldType.Green;
+    public MoldType moldType = MoldType.None;
     private TileType type = TileType.Floor;
     public List<Tile> neighbours;
 
