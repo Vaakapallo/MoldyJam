@@ -5,15 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(Tile))]
 public class Unlock : MonoBehaviour
 {
+    public Lock tileToUnlock;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponent<Tile>().OnSpread += UnlockTile;    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void UnlockTile(){
+        tileToUnlock.Unlock();
     }
 }

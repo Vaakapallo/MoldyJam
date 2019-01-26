@@ -18,6 +18,8 @@ public class Tile : MonoBehaviour
 
     private float moldiness = 0f;
     private bool hasSpread = false; 
+    public delegate void SpreadAction();
+    public event SpreadAction OnSpread;
 
     public bool moldProof = false;
 
@@ -36,7 +38,7 @@ public class Tile : MonoBehaviour
 
     void Update()
     {
-        if(moldy && !hasSpread) {
+        if(moldy && !hasSpread && !moldProof) {
             moldiness += moldingSpeed * Random.Range(0f,2f);
             moldiness = Mathf.Clamp01(moldiness);
         }
@@ -53,11 +55,12 @@ public class Tile : MonoBehaviour
             t.Infect();
         }
         hasSpread = true;
+        if(OnSpread != null){
+            OnSpread();
+        }
     }
 
     void Infect(){
-        if(!moldProof){
-            moldy = true;
-        }
+        moldy = true;
     }
 }

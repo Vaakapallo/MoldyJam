@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Tile))]
 public class Lock : MonoBehaviour
 {
+
+    private Tile tile;
     // Start is called before the first frame update
     void Start()
     {
-        
+        tile = GetComponent<Tile>();
+        tile.moldProof = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Unlock(){
+        tile.moldProof = false;
     }
 }
