@@ -834,7 +834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moldy: 0
-  moldType: 0
+  moldType: 4
   neighbours: []
   moldingSpeed: 0.01
   moldProof: 0
