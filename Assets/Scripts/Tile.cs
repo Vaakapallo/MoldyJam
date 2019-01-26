@@ -2,13 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TileType {
+    Floor,
+    Wall,
+    Furniture
+}
+
 public class Tile : MonoBehaviour
 {
-    public float moldiness = 0f;
     public bool moldy = true;
-    private string type = "Floor";
+    private TileType type = TileType.Floor;
     public List<Tile> neighbours;
 
+    [SerializeField] private float moldingSpeed = 0.01f;
+
+    private float moldiness = 0f;
     private bool infected = false; 
 
     public int x, y;
@@ -25,8 +33,8 @@ public class Tile : MonoBehaviour
 
     void Update()
     {
-        if(moldy) {
-            moldiness += 0.01f * Random.Range(0f,2f);
+        if(moldy && !infected) {
+            moldiness += moldingSpeed * Random.Range(0f,2f);
             moldiness = Mathf.Clamp01(moldiness);
         }
         if(moldiness >= 1 && !infected) {
