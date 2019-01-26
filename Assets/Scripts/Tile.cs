@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum TileType {
     Floor,
@@ -8,7 +9,7 @@ public enum TileType {
     Furniture
 }
 
-public class Tile : MonoBehaviour
+public class Tile : MonoBehaviour, IPointerClickHandler
 {
     public bool moldy = true;
     private TileType type = TileType.Floor;
@@ -43,7 +44,11 @@ public class Tile : MonoBehaviour
         GetComponent<SpriteRenderer>().color = new Color(0, moldiness, 0);
     }
 
-    void InfectNeighbours() {
+    public void OnPointerClick (PointerEventData eventData) {
+        Infect();     
+    }
+
+    private void InfectNeighbours() {
         foreach(Tile t in neighbours) {
             print("infecting");
             t.Infect();
@@ -54,7 +59,7 @@ public class Tile : MonoBehaviour
         }
     }
 
-    void Infect(){
+    private void Infect() {
         moldy = true;
     }
 }
