@@ -59,8 +59,8 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         if(moldType == MoldType.Blue)
             blue = moldiness;
         if(moldType == MoldType.Yellow){
-            green = moldiness/2;
-            blue = moldiness/2;
+            green = moldiness;
+            red = moldiness;
         }
 
         GetComponent<SpriteRenderer>().color = new Color(red, green, blue);
