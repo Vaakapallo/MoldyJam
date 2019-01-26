@@ -30,7 +30,7 @@ public class Tile : MonoBehaviour
         neighbours = GameManager.instance.GetNeighbours(X, Y);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(moldy && !hasSpread && !moldProof) {
             moldiness += moldingSpeed * Random.Range(0f,2f);

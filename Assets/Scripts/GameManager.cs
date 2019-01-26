@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    [Range(1,50)]
+    public float timeScale = 1.0f;
+
     void Awake(){
         instance = this;
         tiles = FindObjectsOfType<Tile>().ToList();
@@ -20,8 +23,9 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        Time.timeScale = timeScale;
     }
 
     public List<Tile> GetNeighbours(int x, int y){
