@@ -67,7 +67,7 @@ public class Tile : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick (PointerEventData eventData) {
-        Infect();     
+        Infect(GameManager.instance.chosenType);
     }
 
     private void InfectNeighbours() {
@@ -80,11 +80,11 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void Infect() {
-        Infect(GameManager.instance.chosenType);
-    }
-
     private void Infect(MoldType type) {
+        if(moldType != type){
+            hasSpread = false;
+            moldiness = 0;
+        }
         moldy = true;
         moldType = type;
     }
