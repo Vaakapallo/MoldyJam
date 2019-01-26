@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3909348126194641484}
   - component: {fileID: 3909348126194641485}
-  - component: {fileID: 3909348126194641482}
+  - component: {fileID: 2539538673439500679}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3909348126194641482
+--- !u!114 &2539538673439500679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,11 +89,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3909348126194641483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad180d7a88a54b4e8c0369dc87b3a60, type: 3}
+  m_Script: {fileID: 11500000, guid: cb96eeeefc204491aa778829a979bcd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moldy: 0
   neighbours: []
   moldingSpeed: 0.01
-  x: 0
-  y: 0
+  moldProof: 0
+  X: 0
+  Y: 0
