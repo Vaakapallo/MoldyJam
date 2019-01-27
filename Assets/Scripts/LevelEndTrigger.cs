@@ -11,6 +11,7 @@ public class LevelEndTrigger : MonoBehaviour
     private AudioSource audioSource; // Remember to add
 
     private Tile tile;
+    private bool finished = false;
 
     void Awake() {
         tile = GetComponent<Tile>();
@@ -18,10 +19,9 @@ public class LevelEndTrigger : MonoBehaviour
     }
 
     void Update() {
-        if(tile.moldType == targetType) {
+        if(tile.moldType == targetType && !finished) {
             GameManager.instance.FinishLevel();
-            if(audioSource != null)
-                audioSource.Play();
+            finished = true;
         }
     }
 

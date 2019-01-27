@@ -19,9 +19,10 @@ public class Unlock : MonoBehaviour
     }
 
     void UnlockTile(){
-        if(mold == tile.moldType){
+        if(mold == tile.moldType) {
             correct = true;
             tileToUnlock.Unlock();
+            GameManager.instance.UnlockDoorAudio();
         } else {
             correct = false;
         }

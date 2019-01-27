@@ -9,8 +9,12 @@ public class GameManager : MonoBehaviour
     public MoldType chosenType = MoldType.Green;
     public Slider timeScaleSlider;
     public GameObject nextLevelButton;
+    public AudioClip doorUnlockAudio;
+    public AudioClip tapSpreadAudio;
+    public AudioClip winAudio;
 
     private List<Tile> tiles;
+    private AudioSource audioSource;
 
     public static GameManager instance;
 
@@ -21,6 +25,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         tiles = FindObjectsOfType<Tile>().ToList();
         timeScaleSlider.onValueChanged.AddListener(val => ChangeTimescale(val));
+        audioSource = GetComponent<AudioSource>();
     }
 
     public List<Tile> GetNeighbours(int x, int y) {
@@ -63,5 +68,18 @@ public class GameManager : MonoBehaviour
 
     public void FinishLevel() {
         nextLevelButton.SetActive(true);
+        WinGameAudio();
+    }
+
+    public void UnlockDoorAudio() {
+        audioSource.PlayOneShot(doorUnlockAudio);
+    }
+
+    public void TapSpreadAudio() {
+        audioSource.PlayOneShot(tapSpreadAudio);
+    }
+
+    private void WinGameAudio() {
+        audioSource.PlayOneShot(winAudio);
     }
 }
