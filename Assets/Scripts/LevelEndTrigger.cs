@@ -5,9 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Tile))]
 public class LevelEndTrigger : MonoBehaviour
 {
-    
-    public MoldType targetType = MoldType.Pink;
-
     private AudioSource audioSource; // Remember to add
 
     private Tile tile;
@@ -19,7 +16,7 @@ public class LevelEndTrigger : MonoBehaviour
     }
 
     void Update() {
-        if(tile.moldType == targetType && !finished) {
+        if(tile.moldType != MoldType.None && !finished) {
             GameManager.instance.FinishLevel();
             finished = true;
         }
