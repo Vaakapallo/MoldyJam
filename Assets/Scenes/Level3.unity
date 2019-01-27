@@ -198,6 +198,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6371207853766104581, guid: 05e55b46d71974cffbb73ca9e19d254a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901157769074022792, guid: 05e55b46d71974cffbb73ca9e19d254a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3730604789307062301, guid: 05e55b46d71974cffbb73ca9e19d254a,
         type: 3}
       propertyPath: m_Name
@@ -391,16 +401,6 @@ PrefabInstance:
     - target: {fileID: 3730604789485667803, guid: 05e55b46d71974cffbb73ca9e19d254a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901157769074022792, guid: 05e55b46d71974cffbb73ca9e19d254a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6371207853766104581, guid: 05e55b46d71974cffbb73ca9e19d254a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -14698,7 +14698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db431f7163aae4bd5ba343b7730a5a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetType: 1
 --- !u!4 &1589569380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 889285837033872150, guid: b91bdf96cde9f4e5399c81deaa52680f,
@@ -16102,25 +16101,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 986b37937e38a4a84891f07ebcbdd6b3, type: 3}
---- !u!1 &2092384026 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3909348126194641483, guid: 986b37937e38a4a84891f07ebcbdd6b3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1887336947}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2092384028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092384026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db431f7163aae4bd5ba343b7730a5a49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetType: 0
 --- !u!1001 &2122687956
 PrefabInstance:
   m_ObjectHideFlags: 0
