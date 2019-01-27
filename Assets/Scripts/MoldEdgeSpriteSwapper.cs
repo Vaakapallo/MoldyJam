@@ -14,6 +14,10 @@ public class MoldEdgeSpriteSwapper : MonoBehaviour
         sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
+    void Start(){
+        
+    }
+
     public void Swap(int v)
     {
         if(v == 0) {
