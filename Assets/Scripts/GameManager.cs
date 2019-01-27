@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
             clicksText.text = "Infections Left: " + clicksLeft.ToString();
     }
 
+    void Update() {
+        if(Input.GetKeyDown(KeyCode.S)) {
+            LoadNextLevel();
+        }
+    }
+
     public List<Tile> GetNeighbours(int x, int y) {
         List<Tile> neighbours = new List<Tile>();
         foreach(Tile t in tiles){
