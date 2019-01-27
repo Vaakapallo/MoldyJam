@@ -89,12 +89,11 @@ public class Tile : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick (PointerEventData eventData) {
-        if(GameManager.instance.clicksLeft == 0 || !clickable)
+        if(!clickable)
             return;
 
         Infect(GameManager.instance.chosenType, Direction.Center);
         GameManager.instance.TapSpreadAudio();
-        GameManager.instance.DecreaseClicks();
         if(MoldTimerRunner.Instance != null) {
             MoldTimerRunner.Instance.ResetTimers();
         }

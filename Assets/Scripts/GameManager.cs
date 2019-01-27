@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public MoldType chosenType = MoldType.Pink;
-    public int clicksLeft = 5;
     public Slider timeScaleSlider;
     public GameObject nextLevelButton;
     public GameObject restartButton;
@@ -30,8 +29,6 @@ public class GameManager : MonoBehaviour
         tiles = FindObjectsOfType<Tile>().ToList();
         timeScaleSlider.onValueChanged.AddListener(val => ChangeTimescale(val));
         audioSource = GetComponent<AudioSource>();
-        if(clicksText != null)
-            clicksText.text = "Infections Left: " + clicksLeft.ToString();
     }
 
     void Update() {
@@ -59,14 +56,6 @@ public class GameManager : MonoBehaviour
             }
         }
         return neighbours;
-    }
-
-    public void DecreaseClicks() {
-        clicksLeft--;
-        clicksText.text = "Infections Left: " + clicksLeft.ToString();
-        if(clicksLeft == 0) {
-            restartButton.SetActive(true);
-        }
     }
 
     public void ChangeToPink() {
