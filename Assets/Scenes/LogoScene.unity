@@ -1507,6 +1507,11 @@ PrefabInstance:
       propertyPath: moldy
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2539538673439500679, guid: 986b37937e38a4a84891f07ebcbdd6b3,
+        type: 3}
+      propertyPath: moldType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 986b37937e38a4a84891f07ebcbdd6b3, type: 3}
 --- !u!1001 &454852212
@@ -25589,8 +25594,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chosenType: 0
+  clicksLeft: 5
   timeScaleSlider: {fileID: 9216261699361935580}
   nextLevelButton: {fileID: 0}
+  restartButton: {fileID: 0}
+  clicksText: {fileID: 0}
+  doorUnlockAudio: {fileID: 0}
+  tapSpreadAudio: {fileID: 0}
+  winAudio: {fileID: 0}
   timeScale: 2
 --- !u!224 &6371207853468008955
 RectTransform:

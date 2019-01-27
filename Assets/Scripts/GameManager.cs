@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public MoldType chosenType = MoldType.Pink;
+    public int clicksLeft = 5;
     public Slider timeScaleSlider;
     public GameObject nextLevelButton;
+    public GameObject restartButton;
+    public Text clicksText;
     public AudioClip doorUnlockAudio;
     public AudioClip tapSpreadAudio;
     public AudioClip winAudio;
@@ -26,6 +30,8 @@ public class GameManager : MonoBehaviour
         tiles = FindObjectsOfType<Tile>().ToList();
         timeScaleSlider.onValueChanged.AddListener(val => ChangeTimescale(val));
         audioSource = GetComponent<AudioSource>();
+        if(clicksText != null)
+            clicksText.text = "Infections Left: " + clicksLeft.ToString();
     }
 
     public List<Tile> GetNeighbours(int x, int y) {
@@ -43,6 +49,14 @@ public class GameManager : MonoBehaviour
             }
         }
         return neighbours;
+    }
+
+    public void DecreaseClicks() {
+        clicksLeft--;
+        clicksText.text = "Infections Left: " + clicksLeft.ToString();
+        if(clicksLeft == 0) {
+            restartButton.SetActive(true);
+        }
     }
 
     public void ChangeToPink() {
@@ -63,7 +77,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void LoadNextLevel() {
-        MainMenuManager.Instance.LoadNextLevel();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void RestartLevel() {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void FinishLevel() {
