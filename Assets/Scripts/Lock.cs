@@ -7,6 +7,7 @@ public class Lock : MonoBehaviour
 {
     private Tile tile;
     private List<Unlock> unlocks;
+    private GameObject DoorSprite;
 
     void Awake(){
         tile = GetComponent<Tile>();
@@ -23,8 +24,10 @@ public class Lock : MonoBehaviour
     }
 
     public void Unlock(){
-        if(AllUnlocksDone())
+        if(AllUnlocksDone()){
             tile.moldProof = false;
+            
+        }
     }
 
     private bool AllUnlocksDone(){
