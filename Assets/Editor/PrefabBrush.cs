@@ -41,7 +41,8 @@ namespace UnityEditor
                 Undo.MoveGameObjectToScene(instance, brushTarget.scene, "Paint Prefabs");
                 Undo.RegisterCreatedObjectUndo((Object)instance, "Paint Prefabs");
                 instance.transform.SetParent(brushTarget.transform);
-                instance.transform.position = grid.LocalToWorld(grid.CellToLocalInterpolated(new Vector3Int(position.x, position.y, m_Z) + new Vector3(.5f, .5f, .5f)));
+                var pos = grid.LocalToWorld(grid.CellToLocalInterpolated(new Vector3Int(position.x, position.y, m_Z) + new Vector3(.5f, .5f, .5f)));
+                instance.transform.position = new Vector3(pos.x, pos.y, -0.5f);
             }
             Tile tile = instance.GetComponent<Tile>();
             if(tile != null) {
