@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public enum TileType {
-    Floor,
-    Wall,
-    Furniture
-}
-
 public enum MoldType {
     Pink, Cyan, Purple, Yellow, None
 }
@@ -25,8 +19,8 @@ public class Tile : MonoBehaviour, IPointerClickHandler
 {
     public bool moldy = true;
     public MoldType moldType = MoldType.None;
-    private TileType type = TileType.Floor;
     public List<Tile> neighbours;
+    public bool clickable = true;
 
     [SerializeField] private float moldingSpeed = 0.01f;
 
@@ -95,7 +89,7 @@ public class Tile : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick (PointerEventData eventData) {
-        if(GameManager.instance.clicksLeft == 0)
+        if(GameManager.instance.clicksLeft == 0 || !clickable)
             return;
 
         Infect(GameManager.instance.chosenType, Direction.Center);
