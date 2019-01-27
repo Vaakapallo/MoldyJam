@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public MoldType chosenType = MoldType.Green;
+    public MoldType chosenType = MoldType.Pink;
     public Slider timeScaleSlider;
     public GameObject nextLevelButton;
     public AudioClip doorUnlockAudio;
@@ -45,14 +45,14 @@ public class GameManager : MonoBehaviour
         return neighbours;
     }
 
-    public void ChangeToGreen() {
-        chosenType = MoldType.Green;
+    public void ChangeToPink() {
+        chosenType = MoldType.Pink;
     }
-    public void ChangeToBlue() {
-        chosenType = MoldType.Blue;
+    public void ChangeToPurple() {
+        chosenType = MoldType.Purple;
     }
-    public void ChangeToRed() {
-        chosenType = MoldType.Red;
+    public void ChangeToCyan() {
+        chosenType = MoldType.Cyan;
     }
     public void ChangeToYellow() {
         chosenType = MoldType.Yellow;

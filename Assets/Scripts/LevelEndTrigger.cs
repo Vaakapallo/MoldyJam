@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelEndTrigger : MonoBehaviour
 {
     
-    public MoldType targetType = MoldType.Green;
+    public MoldType targetType = MoldType.Pink;
 
     private AudioSource audioSource; // Remember to add
 

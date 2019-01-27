@@ -10,7 +10,7 @@ public enum TileType {
 }
 
 public enum MoldType {
-    Green, Red, Blue, Yellow, None
+    Pink, Cyan, Purple, Yellow, None
 }
 
 public enum Direction {
@@ -60,22 +60,38 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    void DetermineColor(){
-        float red = 0;
-        float green = 0;
-        float blue = 0;
-        if(moldType == MoldType.Green)
-            green = 1;
-        if(moldType == MoldType.Red)
-            red = 1;
-        if(moldType == MoldType.Blue)
-            blue = 1;
-        if(moldType == MoldType.Yellow){
-            green = 1;
-            red = 1;
+    void DetermineColor() {
+        byte red = 0;
+        byte green = 0;
+        byte blue = 0;
+
+        if(moldType == MoldType.Pink) {
+            red = 235;
+            green = 88;
+            blue = 247;
         }
 
-        moldManager.SetColor(new Color(red, green, blue));
+        if(moldType == MoldType.Cyan) {
+            red = 116;
+            green = 250;
+            blue = 253;
+        }
+
+        if(moldType == MoldType.Purple) {
+            red = 128;
+            green = 55;
+            blue = 214;
+        }
+
+        if(moldType == MoldType.Yellow) {
+            red = 255;
+            green = 250;
+            blue = 83;
+        }
+
+        Color32 color = new Color32(red, green, blue, 255);
+
+        moldManager.SetColor(color);
     }
 
     public void OnPointerClick (PointerEventData eventData) {

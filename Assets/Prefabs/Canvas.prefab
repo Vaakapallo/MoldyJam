@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 3730604788704054805}
   - component: {fileID: 3730604788704054804}
   m_Layer: 5
-  m_Name: GreenToggle
+  m_Name: PinkToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6184471762839631398}
-        m_MethodName: ChangeToGreen
+        m_MethodName: ChangeToPink
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 3730604788825525910}
   - component: {fileID: 3730604788825525909}
   m_Layer: 5
-  m_Name: RedToggle
+  m_Name: CyanToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6184471762839631398}
-        m_MethodName: ChangeToRed
+        m_MethodName: ChangeToCyan
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9803922, b: 0.3254902, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.9215687, g: 0.34509805, b: 0.9686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.454902, g: 0.9803922, b: 0.9921569, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.5019608, g: 0.21568629, b: 0.83921576, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 3730604789900014248}
   - component: {fileID: 3730604789900014255}
   m_Layer: 5
-  m_Name: BlueToggle
+  m_Name: PurpleToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1306,7 +1306,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6184471762839631398}
-        m_MethodName: ChangeToBlue
+        m_MethodName: ChangeToPurple
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
