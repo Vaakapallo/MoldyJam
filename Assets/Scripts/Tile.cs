@@ -95,8 +95,12 @@ public class Tile : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick (PointerEventData eventData) {
+        if(GameManager.instance.clicksLeft == 0)
+            return;
+
         Infect(GameManager.instance.chosenType, Direction.Center);
         GameManager.instance.TapSpreadAudio();
+        GameManager.instance.DecreaseClicks();
     }
 
     private void InfectNeighbours() {
