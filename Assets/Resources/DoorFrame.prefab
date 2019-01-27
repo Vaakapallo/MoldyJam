@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4dcf60c0a0c594db69317b2fdf56a2a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0b540e0febbf4e8ea3fdedd2faa42a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,4 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 777a65a160ed64412b434359b1d57dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openedDoor: {fileID: 0}
+  openedDoor: {fileID: 21300000, guid: f0b540e0febbf4e8ea3fdedd2faa42a6, type: 3}
+  cyanDoor: {fileID: 21300000, guid: 8e5a9a274b14f4b9f8a012ce5367307b, type: 3}
+  pinkDoor: {fileID: 21300000, guid: d9992d3872ae74bab98ccc9b35f49507, type: 3}
+  purpleDoor: {fileID: 21300000, guid: a64a0f39464a041968f1edd05223ff37, type: 3}
+  yellowDoor: {fileID: 21300000, guid: 526bc8f79085f4fcb852c5cf25ad39ca, type: 3}
+  yellowCyanDoor: {fileID: 21300000, guid: 4dcf60c0a0c594db69317b2fdf56a2a3, type: 3}
