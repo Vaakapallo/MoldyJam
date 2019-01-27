@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public AudioClip tapSpreadAudio;
     public AudioClip winAudio;
 
-    private List<Tile> tiles;
+    public List<Tile> tiles;
     private AudioSource audioSource;
 
     public static GameManager instance;

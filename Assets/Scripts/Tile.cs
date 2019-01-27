@@ -101,6 +101,9 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         Infect(GameManager.instance.chosenType, Direction.Center);
         GameManager.instance.TapSpreadAudio();
         GameManager.instance.DecreaseClicks();
+        if(MoldTimerRunner.Instance != null) {
+            MoldTimerRunner.Instance.ResetTimers();
+        }
     }
 
     private void InfectNeighbours() {
