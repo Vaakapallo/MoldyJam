@@ -5,17 +5,12 @@ using UnityEngine;
 
 public class MoldEdgeSpriteSwapper : MonoBehaviour
 {
-
     private SpriteRenderer[] sprites;
     private int currentSprite = -1;
 
     void Awake()
     {
         sprites = GetComponentsInChildren<SpriteRenderer>();
-    }
-
-    void Start(){
-        
     }
 
     public void Swap(int v)
