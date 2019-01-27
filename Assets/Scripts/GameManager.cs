@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.S)) {
             LoadNextLevel();
         }
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public List<Tile> GetNeighbours(int x, int y) {
