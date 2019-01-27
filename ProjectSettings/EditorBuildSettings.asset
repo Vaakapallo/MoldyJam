@@ -8,8 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LogoScene.unity
     guid: 188a74942ce7742edb4291afd921e637
-  - enabled: 1
-    path: Assets/Scenes/Level1.unity
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/494c4da1ba68e4820a38a501547f9b36
     guid: 494c4da1ba68e4820a38a501547f9b36
   - enabled: 1
     path: Assets/Scenes/Level2.unity
