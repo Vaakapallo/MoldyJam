@@ -25,6 +25,12 @@ public class MoldTimerRunner : MonoBehaviour
     }
 
     void Update() {
+        if(gameManager == null){
+            return;
+        }
+        if(gameManager.tiles == null){
+            return;
+        }
         var distinctColors = gameManager.tiles.Select( tile => tile.moldType ).Distinct().Count();
         if(distinctColors > 1) {
             for(int i = 2; i <= distinctColors; ++i) {
